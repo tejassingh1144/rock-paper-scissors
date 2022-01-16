@@ -3,52 +3,57 @@
  * compute who won
  * display the answer*/
 
-let playerMove,computerMove;			
+let playerMove,computerMove;
+let score=0;
+let resultScreen=document.querySelector('#resultScreen');
+let scoreScreen=document.querySelector('#scoreScreen');
 function playRound(playerMove,computerMove){
 	if(playerMove=="rock"){
 		if(computerMove==0){
-			console.log("DRAW!!! Try again.");
+			result="DRAW!!! Try again.";
 		}
 		else if(computerMove==1){
-			console.log("OOF!! You lose.");
+			result="OOF!! You lose.";
 		}
 		else{
-			console.log("WOAH!! You won.");
+			result="WOAH!! You won.";
 		}
 	}
 	else if(playerMove=="paper"){
 		if(computerMove==0){
-			console.log("WOAH!! You won.");
+			result="WOAH!! You won.";
 		}
 		else if(computerMove==1){
-			console.log("DRAW!! Try again.");
+			result="DRAW!! Try again.";
 		}
 		else{
-			console.log("OOF!! You lose.");
+			result="OOF!! You lose.";
 		}
 	}
 	else{
 		if(computerMove==0){
-			console.log("OOF!! You lose.");
+			result="OOF!! You lose.";
 		}
 		else if(computerMove==1){
-			console.log("WOAH!! You won.");
+			result="WOAH!! You won.";
 		}
 		else{
-			console.log("DRAW!! Try again.");
+			result="DRAW!! Try again.";
 		}
 	}
+	if(result=="WOAH!! You won.") score++;
+	resultScreen.textContent=result;
+	if(score==5) console.log('You Won the game');
+	scoreScreen.textContent=score;
 }
 function playGame(){			
-	playerMove=prompt("What is your move: Rock, Paper or Scissor?");
-
-	/* Math.random generates from [0-1)
-	* (Math.random)*3 generates from [0-3)
-	* Math.floor((Math.random())*3) generates from [0-2]*/
-
+	playerMove=this.id;
 	computerMove= () => Math.floor((Math.random()*3));//rock==0,paper==1,scissors==3
 	playRound(playerMove,computerMove());
 }
-for(i=0;i<5;i++){
-	playGame();
-}
+const rock=document.querySelector('#rock');
+const paper=document.querySelector('#paper');
+const scissor=document.querySelector('#scissor');
+rock.addEventListener('click',playGame);
+paper.addEventListener('click',playGame);
+scissor.addEventListener('click',playGame);
