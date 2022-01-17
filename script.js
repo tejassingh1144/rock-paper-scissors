@@ -1,13 +1,22 @@
-/* take user's action(rock,paper,scissor)
- * generate computers action(rock,paper,scissor)
- * compute who won
- * display the answer*/
+function addHearts(user,num=5){
+	for(i=0;i<num-1;i++){
+		const heart=document.createElement('img');
+		const referenceHeart=document.querySelector(`.${user.className}>#heart`);
+		heart.setAttribute('src','./files/images/heart.png');
+		heart.setAttribute('id','heart');
+		user.insertBefore(heart,referenceHeart.nextSibling);
+	}
+}	
 
-let playerMove,computerMove;
-let score=0;
-let resultScreen=document.querySelector('#resultScreen');
-let scoreScreen=document.querySelector('#scoreScreen');
-function playRound(playerMove,computerMove){
+function removeHeart(user){
+	const heart=document.querySelector(`.${user.className}>#heart`);
+	user.removeChild(heart);
+}
+
+function playRound(){
+	playerMove=this.id;
+	generateMove= () => Math.floor((Math.random()*3));//rock==0,paper==1,sword==3
+	computerMove=generateMove();	
 	if(playerMove=="rock"){
 		if(computerMove==0){
 			result="DRAW!!! Try again.";
@@ -41,19 +50,23 @@ function playRound(playerMove,computerMove){
 			result="DRAW!! Try again.";
 		}
 	}
-	if(result=="WOAH!! You won.") score++;
+	if(result=="WOAH!! You won.") removeHeart(computerBar);
+	else if(result=='OOF!! You lose.') removeHeart(playerBar);
+
 	resultScreen.textContent=result;
-	if(score==5) console.log('You Won the game');
-	scoreScreen.textContent=score;
 }
-function playGame(){			
-	playerMove=this.id;
-	computerMove= () => Math.floor((Math.random()*3));//rock==0,paper==1,scissors==3
-	playRound(playerMove,computerMove());
-}
+
+let playerMove,computerMove;
+const resultScreen=document.querySelector('#resultScreen');
+const playerBar=document.querySelector('.left-container');
+const computerBar=document.querySelector('.right-container');
+console.log(playerBar.className);
+addHearts(playerBar);
+addHearts(computerBar);
+
 const rock=document.querySelector('#rock');
 const paper=document.querySelector('#paper');
-const scissor=document.querySelector('#scissor');
-rock.addEventListener('click',playGame);
-paper.addEventListener('click',playGame);
-scissor.addEventListener('click',playGame);
+const sword=document.querySelector('#sword');
+rock.addEventListener('click',playRound);
+paper.addEventListener('click',playRound);
+sword.addEventListener('click',playRound);

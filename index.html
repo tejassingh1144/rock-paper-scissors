@@ -3,15 +3,27 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Rock Paper Scissors</title>
-		<link rel="stylesheet" href="style.css">
-		<script type="text/javascript" src="script.js" defer></script>
+		<link rel='stylesheet' href='style.css'>
+		<script  src='script.js' defer></script>
 	</head>
 	<body>
-		<button id='rock'>ROCK</button>
-		<button id='paper'>Paper</button>
-		<button id='scissor'>Scissor</button>
+		<h1>ROCK PAPER SCISSOR</h1>
+		<div class='container' id='health-bar'>
+			<div class='left-container'>
+				<span>Player</span>
+				<img src='./files/images/heart.png' id='heart'>	
+			</div>
+			<div class='right-container'>
+				<img src='./files/images/heart.png' id='heart'>
+				<span>Computer</span>
+			</div>
+		</div>
+		<div class='container'>
+			<input type='image' src='./files/images/rock.png' id='rock'>
+			<input type='image' src='./files/images/paper.png' id='paper'>
+			<input type='image' src='./files/images/sword.png' id='sword'>
+		</div>
 		<div id='resultScreen'></div>
-		<div id='scoreScreen'></div>
-		<p> Hello World</p>
+		<div id='playAgain'></div>
 	</body>
 </html>
