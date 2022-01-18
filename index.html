@@ -4,26 +4,37 @@
 		<meta charset="UTF-8">
 		<title>Rock Paper Scissors</title>
 		<link rel='stylesheet' href='style.css'>
-		<script  src='script.js' defer></script>
+		<!--<script  src='script.js' defer></script>-->
+		</style>
 	</head>
 	<body>
-		<h1>ROCK PAPER SCISSOR</h1>
-		<div class='container' id='health-bar'>
-			<div class='left-container'>
-				<span>Player</span>
-				<img src='./files/images/heart.png' id='heart'>	
-			</div>
-			<div class='right-container'>
-				<img src='./files/images/heart.png' id='heart'>
-				<span>Computer</span>
+		<div style='position:absolute;left:50%'>
+			<div style='display:flex;position:relative;left:-50%'>
+				<div class='left black'>ROCK PAPER SCISSOR</div>
+				<div class='right'>ROCK PAPER SCISSOR</div>
 			</div>
 		</div>
-		<div class='container'>
-			<input type='image' src='./files/images/rock.png' id='rock'>
-			<input type='image' src='./files/images/paper.png' id='paper'>
-			<input type='image' src='./files/images/sword.png' id='sword'>
+		<div class='leftPage black'>
+				<div id='healthBar'>
+					<span>Player:</span> <img src='./files/images/heart.png' height='10px'>
+				</div>
+				<div id='moves'>
+					<button id='rock'>ROCK</button>
+					<button id='paper'>PAPER</button>
+					<button id='scissor'>SCISSOR</button>
+				</div>
 		</div>
-		<div id='resultScreen'></div>
-		<div id='playAgain'></div>
+		<div class='rightPage'>
+				<div id='healthBar'>
+					<img src='./files/images/heart.png' height='10px'><span>:COMPUTER</span>
+				</div>
+				<div id='moves'>
+					<button id='rock'>ROCK</button>
+					<button id='paper'>PAPER</button>
+					<button id='scissor'>SCISSOR</button>
+				</div>
+		</div>
+		
+		
 	</body>
 </html>
