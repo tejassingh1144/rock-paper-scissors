@@ -81,7 +81,7 @@ function transition() {
 function removeTransition() {
 	this.classList.remove('transition');
 }
-function addColor(player) {
+function fillColor(player) {
 	for (let i = 0; i < leftSide.length; i++) {
 		leftSide[i].classList.add(`${player}`);
 		if (player == 'white') {
@@ -107,7 +107,7 @@ const myName=prompt('What is your name?');
 let playerColor = prompt('Which color do you choose: white or black?');
 playerName.textContent=`${myName.toUpperCase()}:`
 playerColor=playerColor.toLocaleLowerCase();
-addColor(playerColor);
+fillColor(playerColor);
 for (let i = 0; i < 2; i++) {
 	addLifes(healthBar[i],i,playerColor);
 }

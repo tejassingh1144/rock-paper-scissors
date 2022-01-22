@@ -32,12 +32,12 @@ body{
 .black{
 	background-color:#000;
 	color:#FFF;
-	border:2px solid #FFF;
+	border:1px solid #FFF;
 }
 .white{
 	background-color:#FFF;
 	color:#000;
-	border:2px solid #000;
+	border:1px solid #000;
 }
 .transition{
 	font-size: 2rem;
@@ -59,6 +59,7 @@ body{
 #resultScreen{
 	overflow:hidden;
 	max-height: 10rem;
+	text-align: center;
 }
 @font-face{
 	src:url('./files/fonts/pixel.TTF');
