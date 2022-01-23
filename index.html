@@ -8,15 +8,15 @@
 		</style>
 	</head>
 	<body>
-		<div style='position:absolute;left:50%'>
+		<div id='independent' style='top:0'>
 			<div style='display:flex;position:relative;left:-50%'>
-				<div class='left leftSide' style='font-size:2.5rem'>ROCK PAPER AND SCISSOR</div>
-				<div class='right rightSide' style='font-size:2.5rem'>ROCK PAPER AND SCISSOR</div>
+				<div class='left leftSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
+				<div class='right rightSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
 			</div>
 		</div>
 		<div class='leftSide' id='leftPage'>
 				<div class='healthBar' id='playerBar'>
-					<span id='player'></span><span id='hi'></span>
+					<span id='player'></span><span id='ref'></span>
 				</div>
 				<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
 					<div class='buttons' id='rock'>ROCK</div>
@@ -26,7 +26,7 @@
 		</div>
 		<div class='rightSide' id='rightPage' >
 				<div class='healthBar' id='computerBar'>
-					<span id='hi'></span><span>:COMPUTER</span>
+					<span id='ref'></span><span>:COMPUTER</span>
 				</div>
 				<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
 					<div class='buttons' id='rock'>ROCK</div>
@@ -34,10 +34,12 @@
 					<div class='buttons' id='scissor'>SCISSOR</div>
 				</div>
 		</div>
-		<div style='position:absolute;left:50%;bottom:0;'>
-			<div style='display:flex;position:relative;left:-50%;height:10rem;width:10rem'>
-				<div class='left leftSide' id='resultScreen'><div class='hi' style='text-decoration: underline; padding: 0.1rem;'>Result Screen<br></div></div>
-				<div class='right rightSide' id='resultScreen'><div class='hi' style='text-decoration: underline; padding: 0.1rem;'>Result Screen<br></div></div>
+		<div id='independent' style='top:50%;font-size:1.5rem;'>
+			<div id='resultScreen' style='position: relative;left:-50%'>
+				<div id='ref' style='display:flex'>
+					<div class='left leftSide' style='margin-bottom: 1rem;'>Result Screen</div>
+					<div class='right rightSide' style='margin-bottom: 1rem;'>Result Screen</div>
+				</div>
 			</div>
 		</div>
 	</body>

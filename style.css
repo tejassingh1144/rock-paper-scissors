@@ -26,26 +26,28 @@ body{
 	z-index:0;
 	white-space:nowrap;
 	min-width:100%;
-	min-height:100%;
 	text-align: left;
 }
 .black{
 	background-color:#000;
 	color:#FFF;
-	border:1px solid #FFF;
 }
 .white{
 	background-color:#FFF;
 	color:#000;
-	border:1px solid #000;
 }
 .transition{
 	font-size: 2rem;
 }
 .healthBar{
+	display:flex;
 	position: relative;
 	bottom:6rem;
 	font-size:1.4rem;
+}
+#independent{
+	position:absolute;
+	left:50%;
 }
 #leftPage,#rightPage{
 	display: flex;
@@ -57,9 +59,9 @@ body{
 	align-items: center;
 }
 #resultScreen{
-	overflow:hidden;
-	max-height: 10rem;
-	text-align: center;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
 }
 @font-face{
 	src:url('./files/fonts/pixel.TTF');

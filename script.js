@@ -1,8 +1,22 @@
+function printResult(someText){
+	const div=document.createElement('div');
+	const divChild1=document.createElement('div');
+	const divChild2=document.createElement('div');
+	const reference= document.querySelector(`#${resultScreen.id}>#ref`);
+	divChild1.classList.add('left','leftSide');
+	divChild1.textContent=someText;
+	divChild2.classList.add('right','rightSide');
+	divChild2.textContent=someText;
+	div.style.display='flex';
+	div.appendChild(divChild1);
+	div.appendChild(divChild2);
+	resultScreen.insertBefore(div,reference.nextSibling);
+	
+}
 function addLifes(user,j,playerColor) {
 	for (i = 0; i < 5; i++) {
-		const life = document.createElement('img');
-		const referenceHeart = document.querySelector(`#${user.id}>#hi`);
-		console.log(referenceHeart)
+		const life = document.createElement('div');
+		const referenceHeart = document.querySelector(`#${user.id}>#ref`);
 		life.setAttribute('id', 'life');
 		user.insertBefore(life, referenceHeart.nextSibling);
 		if(j==0){
@@ -66,9 +80,7 @@ function playRound() {
 			result = "DRAW!! Try again.";
 		}
 	}
-	for (let i = 0; i < 2; i++) {
-		resultScreen[i].insertAdjacentHTML('afterend', `${result}<br>`);
-	}
+	printResult(result);
 	if (result == 'OOF!! You lose.') removeLife(healthBar[0]);
 	else if (result == 'WOAH!! You won.') removeLife(healthBar[1]);
 	if(healthBar[0].children.length==2||healthBar[1].children.length==2){
@@ -82,6 +94,8 @@ function removeTransition() {
 	this.classList.remove('transition');
 }
 function fillColor(player) {
+	const rightSide = document.querySelectorAll('.rightSide');
+	const leftSide = document.querySelectorAll('.leftSide');
 	for (let i = 0; i < leftSide.length; i++) {
 		leftSide[i].classList.add(`${player}`);
 		if (player == 'white') {
@@ -94,15 +108,13 @@ function fillColor(player) {
 }
 
 let playerMove, computerMove;
-const rightSide = document.querySelectorAll('.rightSide');
-const leftSide = document.querySelectorAll('.leftSide');
-const resultScreen = document.querySelectorAll('.hi')
 const healthBar = document.querySelectorAll('.healthBar');
 const buttons = document.querySelectorAll('.buttons')
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
 const playerName=document.querySelector('#player');
+const resultScreen=document.querySelector('#resultScreen');
 const myName=prompt('What is your name?');
 let playerColor = prompt('Which color do you choose: white or black?');
 playerName.textContent=`${myName.toUpperCase()}:`
