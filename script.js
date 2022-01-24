@@ -10,6 +10,8 @@ function printResult(someText){
 	div.style.display='flex';
 	div.appendChild(divChild1);
 	div.appendChild(divChild2);
+	fillColor(divChild1);
+	fillColor(divChild2);
 	resultScreen.insertBefore(div,reference.nextSibling);
 	
 }
@@ -93,17 +95,35 @@ function transition() {
 function removeTransition() {
 	this.classList.remove('transition');
 }
-function fillColor(player) {
-	const rightSide = document.querySelectorAll('.rightSide');
-	const leftSide = document.querySelectorAll('.leftSide');
-	for (let i = 0; i < leftSide.length; i++) {
-		leftSide[i].classList.add(`${player}`);
-		if (player == 'white') {
-			rightSide[i].classList.add('black');
+function positionCheck(obj){
+	let classArr=Array.from(obj.classList);
+	for(let i=0;i<classArr.length;i++){
+		if(classArr[i]=='leftSide'){
+			return 'leftSide';
 		}
-		else {
-			rightSide[i].classList.add('white');
+		else if(classArr[i]=='rightSide'){
+			return 'rightSide';
 		}
+	}
+	return none;
+}
+function fillColor(obj){
+	switch(positionCheck(obj)){
+		case 'leftSide':
+			obj.classList.add(playerColor);
+			break;
+		case 'rightSide':
+			obj.classList.add(computerColor);
+			break;
+	}
+	
+}
+function assignComputerColor(playerColor){
+	if(playerColor=='white'){
+		return 'black';
+	}
+	else{
+		return 'white';
 	}
 }
 
@@ -117,13 +137,20 @@ const playerName=document.querySelector('#player');
 const resultScreen=document.querySelector('#resultScreen');
 const myName=prompt('What is your name?');
 let playerColor = prompt('Which color do you choose: white or black?');
+let rightSide=document.querySelectorAll('.rightSide');
+let leftSide=document.querySelectorAll('.leftSide');
+let computerColor;
+
 playerName.textContent=`${myName.toUpperCase()}:`
+computerColor=assignComputerColor(playerColor);
 playerColor=playerColor.toLocaleLowerCase();
-fillColor(playerColor);
+rightSide=Array.from(rightSide);
+leftSide=Array.from(leftSide);
+rightSide.map(fillColor);
+leftSide.map(fillColor);
 for (let i = 0; i < 2; i++) {
 	addLifes(healthBar[i],i,playerColor);
 }
-console.log(healthBar[1].children.length);
 for (let i = 0; i < buttons.length; i++) {
 	buttons[i].addEventListener('mouseover', transition);
 	buttons[i].addEventListener('mouseout', removeTransition);
