@@ -30,16 +30,16 @@
 						<span id='ref'></span><span>:COMPUTER</span>
 					</div>
 					<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
-						<div class='buttons' id='rock'>ROCK</div>
-						<div class='buttons' id='paper'>PAPER</div>
-						<div class='buttons' id='scissor'>SCISSOR</div>
+						<div id='rock'>ROCK</div>
+						<div id='paper'>PAPER</div>
+						<div id='scissor'>SCISSOR</div>
 					</div>
 			</div>
 			<div id='independent' style='top:50%;font-size:1.5rem;'>
 				<div id='resultScreen' style='position: relative;left:-50%'>
 					<div id='ref' style='display:flex'>
-						<div class='left leftSide' style='margin-bottom: 1rem;'>Result Screen</div>
-						<div class='right rightSide' style='margin-bottom: 1rem;'>Result Screen</div>
+						<div class='left leftSide' style='margin-bottom: 1rem;'>Result</div>
+						<div class='right rightSide' style='margin-bottom: 1rem;'>Result</div>
 					</div>
 				</div>
 			</div>
@@ -60,6 +60,20 @@
 					<input id='color' type='text'>
 					<input type='submit' value='Enter' onclick='storeAndFillColor()'>
 				</form>
+			</div>
+		</div>
+		<div id='again' class='container' style='position: absolute;left:50%;top:50%;'>
+			<div class='dialogBox'>
+				<div>PLAY AGAIN?</div>
+				<div>
+					<input type='button' value='YES' onclick='playAgain()'>
+					<input type='button' value='NO' onclick='endIt()'>
+				</div>
+			</div>
+		</div>
+		<div id='byePage' class='container' style='position: absolute;left: 50%;top: 50%;'>
+			<div class='dialogBox'>
+				Hope you enjoyed my page, bye. :)
 			</div>
 		</div>
 	</body>
