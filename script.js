@@ -86,7 +86,7 @@ function playRound() {
 	if (result == 'OOF!! You lose.') removeLife(healthBar[0]);
 	else if (result == 'WOAH!! You won.') removeLife(healthBar[1]);
 	if(healthBar[0].children.length==2||healthBar[1].children.length==2){
-		document.querySelector('body').style.display='none';
+		showThisHideRest(again);
 	}
 }
 function transition() {
@@ -154,13 +154,21 @@ function showThisHideRest(obj){
 		}
 	}
 }
+function playAgain(){
+	location.reload();
+}
+function endIt(){
+	showThisHideRest(byePage);
+}
 
 let playerMove, computerMove,playerColor,computerColor;
 const container=document.getElementsByClassName('container');
 const nameBox=document.getElementById('nameBox');
-showThisHideRest(nameBox);
 const colorBox=document.getElementById('colorBox');
 const mainPage=document.getElementById('mainPage');
+const again=document.getElementById('again');
+const byePage=document.getElementById('byePage');
+showThisHideRest(nameBox);
 const healthBar = document.querySelectorAll('.healthBar');
 const buttons = document.querySelectorAll('.buttons')
 const rock = document.querySelector('#rock');
