@@ -90,6 +90,7 @@ function playRound() {
 	}
 }
 function transition() {
+	console.log(this);
 	this.classList.add('transition');
 }
 function removeTransition() {
@@ -143,6 +144,9 @@ function storeAndFillColor(){
 	leftSide=Array.from(leftSide);
 	rightSide.map(fillColor);
 	leftSide.map(fillColor);
+	for (let i = 0; i < 2; i++) {
+	addLifes(healthBar[i],i,playerColor);
+	}
 }
 function showThisHideRest(obj){
 	for(let i=0;i<container.length;i++){
@@ -168,20 +172,14 @@ const colorBox=document.getElementById('colorBox');
 const mainPage=document.getElementById('mainPage');
 const again=document.getElementById('again');
 const byePage=document.getElementById('byePage');
-showThisHideRest(nameBox);
 const healthBar = document.querySelectorAll('.healthBar');
 const buttons = document.querySelectorAll('.buttons')
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
 const resultScreen=document.querySelector('#resultScreen');
-for (let i = 0; i < 2; i++) {
-	addLifes(healthBar[i],i,playerColor);
-}
+showThisHideRest(nameBox);
 for (let i = 0; i < buttons.length; i++) {
 	buttons[i].addEventListener('mouseover', transition);
 	buttons[i].addEventListener('mouseout', removeTransition);
 }
-rock.addEventListener('click', playRound);
-paper.addEventListener('click', playRound);
-scissor.addEventListener('click', playRound);

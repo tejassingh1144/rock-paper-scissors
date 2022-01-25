@@ -20,9 +20,9 @@
 						<span id='player'></span><span id='ref'></span>
 					</div>
 					<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
-						<div class='buttons' id='rock'>ROCK</div>
-						<div class='buttons' id='paper'>PAPER</div>
-						<div class='buttons' id='scissor'>SCISSOR</div>
+						<input type='button' class='buttons' id='rock' value='ROCK' onclick='playRound()'>
+						<input type='button' class='buttons' id='paper' value='PAPER' onclick='playRound()'>
+						<input type='button' class='buttons' id='scissor' value='Scissor' onclick='playRound()'>
 					</div>
 			</div>
 			<div class='rightSide' id='rightPage' >
@@ -66,8 +66,8 @@
 			<div class='dialogBox'>
 				<div>PLAY AGAIN?</div>
 				<div>
-					<input type='button' value='YES' onclick='playAgain()'>
-					<input type='button' value='NO' onclick='endIt()'>
+					<input class='buttons' type='button' value='YES' onclick='playAgain()'>
+					<input class='buttons' type='button' value='NO' onclick='endIt()'>
 				</div>
 			</div>
 		</div>
