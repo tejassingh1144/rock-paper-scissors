@@ -1,18 +1,46 @@
+.hide{
+	display:none !important;
+}
+body{
+	background-color: #000;
+	color:#FFF;
+}
 #life{
 	height:0.8rem;
 	width:0.8rem;
 	margin:0.1rem;
 }
-html,body{
+html,body,#mainPage{
 	height:100%;
 	margin:0;
 	font-size: 16px;
 }
-body{
+#mainPage{
 	display:flex;
 	font-family:'pixel',sans-serif;
 	text-align:center;
 	font-size:16px;
+}
+input{
+	border:0.2rem #FFF solid;
+	background-color: #000;
+	color:#FFF;
+	font-family:'pixel',sans-serif;
+	padding:0.8rem;
+}
+form{
+	display:flex;
+	flex-direction: column;
+}
+.dialogBox{
+	padding:2rem;
+	background-color:#000;
+	border:0.5rem #FFF solid;
+	color:#FFF;
+	position:relative;
+	left:-50%;
+	top:-100px;
+	border
 }
 .left{
 	min-width: 50%;	

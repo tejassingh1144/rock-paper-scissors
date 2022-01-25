@@ -126,28 +126,47 @@ function assignComputerColor(playerColor){
 		return 'white';
 	}
 }
+function storeName(){
+	const playerName=document.querySelector('#player');
+	const myName=document.getElementById('name').value;
+	playerName.textContent=`${myName.toUpperCase()}:`
+	showThisHideRest(colorBox);
+}
+function storeAndFillColor(){
+	playerColor=document.getElementById('color').value;
+	playerColor=playerColor.toLocaleLowerCase();
+	computerColor=assignComputerColor(playerColor);
+	showThisHideRest(mainPage);
+	let rightSide=document.querySelectorAll('.rightSide');
+	let leftSide=document.querySelectorAll('.leftSide');
+	rightSide=Array.from(rightSide);
+	leftSide=Array.from(leftSide);
+	rightSide.map(fillColor);
+	leftSide.map(fillColor);
+}
+function showThisHideRest(obj){
+	for(let i=0;i<container.length;i++){
+		if(container[i].id==obj.id){
+			container[i].classList.remove('hide');
+		}
+		else{
+			container[i].classList.add('hide');
+		}
+	}
+}
 
-let playerMove, computerMove;
+let playerMove, computerMove,playerColor,computerColor;
+const container=document.getElementsByClassName('container');
+const nameBox=document.getElementById('nameBox');
+showThisHideRest(nameBox);
+const colorBox=document.getElementById('colorBox');
+const mainPage=document.getElementById('mainPage');
 const healthBar = document.querySelectorAll('.healthBar');
 const buttons = document.querySelectorAll('.buttons')
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
-const playerName=document.querySelector('#player');
 const resultScreen=document.querySelector('#resultScreen');
-const myName=prompt('What is your name?');
-let playerColor = prompt('Which color do you choose: white or black?');
-let rightSide=document.querySelectorAll('.rightSide');
-let leftSide=document.querySelectorAll('.leftSide');
-let computerColor;
-
-playerName.textContent=`${myName.toUpperCase()}:`
-computerColor=assignComputerColor(playerColor);
-playerColor=playerColor.toLocaleLowerCase();
-rightSide=Array.from(rightSide);
-leftSide=Array.from(leftSide);
-rightSide.map(fillColor);
-leftSide.map(fillColor);
 for (let i = 0; i < 2; i++) {
 	addLifes(healthBar[i],i,playerColor);
 }

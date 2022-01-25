@@ -8,38 +8,58 @@
 		</style>
 	</head>
 	<body>
-		<div id='independent' style='top:0'>
-			<div style='display:flex;position:relative;left:-50%'>
-				<div class='left leftSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
-				<div class='right rightSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
+		<div id='mainPage' class='container'>
+			<div id='independent' style='top:0'>
+				<div style='display:flex;position:relative;left:-50%'>
+					<div class='left leftSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
+					<div class='right rightSide' style='font-size:2.5rem'>ROCK PAPER SCISSOR</div>
+				</div>
+			</div>
+			<div class='leftSide' id='leftPage'>
+					<div class='healthBar' id='playerBar'>
+						<span id='player'></span><span id='ref'></span>
+					</div>
+					<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
+						<div class='buttons' id='rock'>ROCK</div>
+						<div class='buttons' id='paper'>PAPER</div>
+						<div class='buttons' id='scissor'>SCISSOR</div>
+					</div>
+			</div>
+			<div class='rightSide' id='rightPage' >
+					<div class='healthBar' id='computerBar'>
+						<span id='ref'></span><span>:COMPUTER</span>
+					</div>
+					<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
+						<div class='buttons' id='rock'>ROCK</div>
+						<div class='buttons' id='paper'>PAPER</div>
+						<div class='buttons' id='scissor'>SCISSOR</div>
+					</div>
+			</div>
+			<div id='independent' style='top:50%;font-size:1.5rem;'>
+				<div id='resultScreen' style='position: relative;left:-50%'>
+					<div id='ref' style='display:flex'>
+						<div class='left leftSide' style='margin-bottom: 1rem;'>Result Screen</div>
+						<div class='right rightSide' style='margin-bottom: 1rem;'>Result Screen</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class='leftSide' id='leftPage'>
-				<div class='healthBar' id='playerBar'>
-					<span id='player'></span><span id='ref'></span>
-				</div>
-				<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
-					<div class='buttons' id='rock'>ROCK</div>
-					<div class='buttons' id='paper'>PAPER</div>
-					<div class='buttons' id='scissor'>SCISSOR</div>
-				</div>
+		<div id='nameBox' class='container' style='position:absolute;top:50%;left:50%'>
+			<div class='dialogBox'>
+				<form onsubmit='return false'>
+					<label for='name'>What is your name?</label>
+					<input id='name' type='text'>
+					<input type='submit' value='Enter' onclick='storeName()'>
+				</form>
+			</div>
 		</div>
-		<div class='rightSide' id='rightPage' >
-				<div class='healthBar' id='computerBar'>
-					<span id='ref'></span><span>:COMPUTER</span>
-				</div>
-				<div style="display:flex;justify-content:center;gap:2rem" id='moves'>
-					<div class='buttons' id='rock'>ROCK</div>
-					<div class='buttons' id='paper'>PAPER</div>
-					<div class='buttons' id='scissor'>SCISSOR</div>
-				</div>
-		</div>
-		<div id='independent' style='top:50%;font-size:1.5rem;'>
-			<div id='resultScreen' style='position: relative;left:-50%'>
-				<div id='ref' style='display:flex'>
-					<div class='left leftSide' style='margin-bottom: 1rem;'>Result Screen</div>
-					<div class='right rightSide' style='margin-bottom: 1rem;'>Result Screen</div>
-				</div>
+		<div id='colorBox' class='container' style='position:absolute;left:50%;top:50%'>
+			<div class='dialogBox'>
+				<form onsubmit='return false'>
+					<label for='color'>Choose a color: black and white</label>
+					<input id='color' type='text'>
+					<input type='submit' value='Enter' onclick='storeAndFillColor()'>
+				</form>
 			</div>
 		</div>
 	</body>
