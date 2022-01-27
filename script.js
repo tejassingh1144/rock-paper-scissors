@@ -85,7 +85,12 @@ function playRound() {
 	printResult(result);
 	if (result == 'OOF!! You lose.') removeLife(healthBar[0]);
 	else if (result == 'WOAH!! You won.') removeLife(healthBar[1]);
-	if(healthBar[0].children.length==2||healthBar[1].children.length==2){
+	if(healthBar[0].children.length==2){
+		endMessage.innerHTML="You won the game, now give me party!!!!<br>PLAY AGAIN?<br>"
+		showThisHideRest(again);
+	}
+	else if(healthBar[1].children.length==2){
+		endMessage.innerHTML="You lost the game, there there don't cry.<br>WANNA TRY AGAIN?<br>"
 		showThisHideRest(again);
 	}
 }
@@ -178,6 +183,7 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
 const resultScreen=document.querySelector('#resultScreen');
+const endMessage=document.getElementById("endMessage");
 showThisHideRest(nameBox);
 for (let i = 0; i < buttons.length; i++) {
 	buttons[i].addEventListener('mouseover', transition);
