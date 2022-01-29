@@ -7,6 +7,8 @@ function printResult(someText){
 	divChild1.textContent=someText;
 	divChild2.classList.add('right','rightSide');
 	divChild2.textContent=someText;
+	divChild1.style.marginBottom='0.2rem';
+	divChild2.style.marginBottom='0.2rem';
 	div.style.display='flex';
 	div.appendChild(divChild1);
 	div.appendChild(divChild2);
