@@ -96,6 +96,6 @@ form{
 	align-items: center;
 }
 @font-face{
-	src:url('./files/fonts/pixel.TTF');
+	src:url('./files/fonts/pixel.ttf');
 	font-family:'pixel';
 }
